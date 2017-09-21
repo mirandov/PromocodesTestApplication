@@ -1,0 +1,26 @@
+I"Ü(function() {
+  var ready;
+
+  ready = function() {
+    return $(".growl-msg").each(function() {
+      var type;
+      type = $(this).data('type') || 'info';
+      if (type === 'danger') {
+        return $.growl($(this).html(), {
+          type: type,
+          delay: 0
+        });
+      } else {
+        return $.growl($(this).html(), {
+          type: type
+        });
+      }
+    });
+  };
+
+  $(document).ready(ready);
+
+  $(document).on('page:load', ready);
+
+}).call(this);
+:ET

@@ -1,0 +1,9 @@
+%h1
+  Забыли пароль?
+= form_tag password_resets_path, :method => :post do
+  .row
+    .col-md-5
+      = label_tag("email", "Адрес электронной почты:") 
+      = text_field_tag :email, '', class: 'form-control'
+  .form-actions
+    = submit_tag "Сменить", class: 'btn btn-primary'

@@ -1,0 +1,27 @@
+-# nested_start
+.col-md-6
+  %div{class: 'panel panel-'+ (i.kind_of?(Integer) ? 'success' : 'info')}
+    .panel-heading
+      Роль
+      = i
+      %span.toright
+        -# Кнопка для удаления связи роль-пользователь. См. role_users_helper
+        = link_to_remove_role(fr)
+      .clearfix
+    .panel-body
+      .row
+        .col-md-6
+          .form-group
+            = fr.label :role_id
+            = fr.select(:role_id, 
+            options_for_select(role_options, fr.object.role_id), 
+            {}, class: 'form-control')
+            -# role_options ищите в roles_heper
+            = fr.error_messages_for(:role_id)
+        .col-md-6
+          .form-group
+            = fr.label :data
+            = fr.text_field :data, class: 'form-control', value: fr.object.data.try('[]', 'data') 
+            = fr.error_messages_for(:data)
+-# nested_finish
+

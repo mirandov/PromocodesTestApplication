@@ -1,0 +1,7 @@
+I"~(function() {
+  $(document).on('page:restore', function() {
+    return $("#loader").modal('hide');
+  });
+
+}).call(this);
+:ET

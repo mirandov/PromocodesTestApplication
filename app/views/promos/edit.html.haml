@@ -1,0 +1,15 @@
+=breadcrumb_tag do
+  %li.active
+    = t('headers.promos.edit')
+  %li
+    = link_to(@promo.name, @promo)
+  %li
+    = link_to 'Промокоды',promos_path
+
+.page-header
+  %h1= t('headers.promos.edit')
+
+= render 'form'
+
+= link_to  promos_path, class: 'btn btn-info' do
+  = t('buttons.back')

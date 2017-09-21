@@ -1,0 +1,183 @@
+$sidebar-width: 250px
+$sidebar-bg: #F2F2F2 
+$sidebar-link-color: lighten($gray-base, 40%) //#b3b8c3
+$sidebar-link-hover-bg: $light_blue
+
+$sidebar-right-border-color: $dark-blue
+
+#wrapper
+  padding-top: $navbar-height
+  padding-left: 0
+  transition: all 0.5s ease
+  #sidebar-toggle
+    transition: all 0.5s ease
+    background-color: $sidebar-bg
+    padding: 3px 6px 3px 4px
+    font-size: 120%
+    border-color: $sidebar-right-border-color
+    border-style: solid
+    border-width: 1px 1px 1px 0
+    border-radius: 0 10px 10px 0
+    position: fixed
+    left: 0
+    top: 3px + $navbar-height
+    cursor: pointer
+    &:hover, &:active, &:focus, &.active
+      transition: all 0.5s ease
+      text-decoration: none
+      background: $sidebar-link-hover-bg
+    a
+      transition: all 0.5s ease
+      display: block
+      text-decoration: none
+      color: $sidebar-link-color
+  &.toggled
+    padding-left: $sidebar-width
+    #sidebar-wrapper
+      width: $sidebar-width
+    #sidebar-toggle
+      left: $sidebar-width
+    #page-content-wrapper
+      position: absolute
+      margin-right: -$sidebar-width
+
+#sidebar-wrapper
+  z-index: 500
+  position: fixed
+  left: $sidebar-width
+  width: 0
+  height: 100%
+  margin-left: -$sidebar-width
+  overflow-y: auto
+  background-color: $sidebar-bg
+  transition: all 0.5s ease
+  li.footer
+    line-height: normal
+    text-indent: 0px
+    padding-left: 10px
+    padding-right: 10px
+    margin-top: 50px
+    color: $sidebar-link-color
+    font-size: 12px    
+    a, a:hover
+      display: inline
+    // border-top: 1px dashed $sidebar-right-border-color
+
+#page-content-wrapper
+  padding: 15px
+
+.sidebar-nav
+  position: absolute
+  top: 0
+  bottom: 0
+  width: $sidebar-width
+  margin: 0
+  padding: 0 0 0 0
+  border-color-right: darken($navbar-inverse-bg, 10%)
+  border-style: solid
+  border-width: 0 1px 0 0
+  list-style: none
+  li
+    text-indent: 10px
+    line-height: 40px
+    a
+      transition: all 0.5s ease
+      display: block
+      text-decoration: none
+      color: $sidebar-link-color
+      font-size: 14px
+      &:hover, &:active, &:focus, &.active
+        transition: all 0.5s ease
+        text-decoration: none
+        background: $sidebar-link-hover-bg
+    .carret
+      padding-right: 14px
+    .menu-icon
+      width: 30px
+      font-size: 18px
+      padding-right: 4px
+    .with-subitems
+      display: block
+      text-decoration: none
+      color: $sidebar-link-color
+      // border-bottom: 1px solid $navbar-inverse-bg
+      border-top: 1px solid $navbar-inverse-bg
+      font-size: 14px
+      .menu-icon
+        width: 30px
+        font-size: 18px
+        padding-right: 4px
+  .subitems
+    //overflow: hidden
+    border-top: 1px solid $navbar-inverse-bg
+    list-style: none
+    padding: 0
+    position: relative
+    height: auto
+    &.subclose
+      display: none
+    &.subopen
+      display: block
+    &:before
+      border-color: $navbar-inverse-bg
+      border-style: solid
+      border-width: 0 0 0 1px
+      bottom: 0
+      content: ""
+      display: block
+      left: 25px
+      position: absolute
+      top: 0
+      z-index: 1
+    .subitem
+      margin-left: 0
+      position: relative
+      font-size: 13px
+      a
+        display: block
+        position: relative
+        padding-left: 25px
+        .menu-icon
+          width: 30px
+          font-size: 16px
+          padding-right: 4px
+      &::before
+        border-color: $navbar-inverse-bg
+        border-style: solid
+        border-width: 1px 0 0
+        content: ""
+        display: block
+        left: 26px
+        position: absolute
+        top: 17px
+        width: 10px
+
+  .sidebar-brand
+    height: 65px
+    font-size: 18px
+    line-height: 60px
+    font-family: 'Intro'
+    text-align: center
+    text-indent: 0px
+
+    a
+      &:hover
+        color: #fff
+        background: none
+
+@media (min-width: $screen-xs)
+  #wrapper
+    padding-left: $sidebar-width
+    &.toggled
+      padding-left: 0
+      #sidebar-wrapper
+        width: 0
+      #page-content-wrapper
+        position: relative
+        margin-right: 0
+      #sidebar-toggle
+        left: 0
+    #sidebar-toggle
+      left: $sidebar-width
+  #sidebar-wrapper
+    width: $sidebar-width

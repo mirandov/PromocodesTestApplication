@@ -1,0 +1,26 @@
+=breadcrumb_tag do
+  %li
+    = link_to(@order.description, @order)
+  %li
+    = link_to 'Заказы', orders_path
+
+%h1= @order.description
+
+%dl
+  %dt= Order.human_attribute_name(:description)
+  %dd= @order.description
+  %dt= Order.human_attribute_name(:price)
+  %dd= @order.price
+  %dt= Promo.human_attribute_name(:name)
+  %dd= @order.promo.nil? ? "без промокода" : @order.promo.name
+  %dt= Promo.human_attribute_name(:sale)
+  %dd= @order.promo.nil? ? "без скидки" : @order.promo.sale.to_s + "%"
+  %dt= Order.human_attribute_name(:user)
+  %dd= @order.user.email
+  %dt= Order.human_attribute_name(:price_with_sale)
+  %dd= @order.promo.nil? ? @order.price : (@order.price - (@order.price * @order.promo.sale / 100.0))
+
+
+= link_to edit_order_path, class: 'btn btn-info' do
+  = fa_icon :edit
+  = t('headers.orders.edit')

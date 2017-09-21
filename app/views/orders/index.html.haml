@@ -1,0 +1,36 @@
+.page-header
+  %h1= t('headers.orders.index')
+
+
+%table.table.table-hover.table-striped
+  %caption
+    = link_to new_order_path, class: 'btn btn-success' do
+      = fa_icon :plus
+      = t('headers.orders.new')
+  %thead
+    %tr
+      %th= Order.human_attribute_name(:description)
+      %th= Order.human_attribute_name(:price)
+      %th= Promo.human_attribute_name(:name)
+      %th= Promo.human_attribute_name(:sale)
+      %th= Order.human_attribute_name(:user)
+      %th= Order.human_attribute_name(:price_with_sale)
+  %tbody
+    - @orders.each do |order|
+      - if order.user == @current_user || @current_role_user.try(:is_admin?) || @current_role_user.try(:is_operator?)
+        %tr
+          %td.center= order.description
+          %td.center= order.price
+          %td.center= order.promo.nil? ? "без промокода" : order.promo.name
+          %td.center= order.promo.nil? ? "без скидки" : order.promo.sale
+          %td.center= order.user.email
+          %td.center= order.promo.nil? ? order.price : (order.price - (order.price * order.promo.sale / 100.0))
+          %td.right
+            = link_to edit_order_path(order), class: 'btn btn-info' do
+              = fa_icon :edit
+              = t('buttons.edit')
+            = link_to order, :method => :delete,
+            :data => { :confirm => t('buttons.confirm.user') },
+            class: 'btn btn-danger' do
+              = fa_icon :times
+              = t('buttons.destroy')

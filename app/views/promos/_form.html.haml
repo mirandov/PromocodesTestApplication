@@ -1,0 +1,23 @@
+= form_for @promo do |f|
+  = error_messages_for @promo
+  .row
+    .col-md-6
+      .form-group
+        = f.label :name
+        = f.text_field :name, class: 'form-control'
+        = f.error_messages_for(:name)
+  .row
+    .col-md-6
+      .form-group
+        = f.label :sale
+        = f.number_field :sale, min: 0, max: 100, step: 0.5,  class: 'form-control'
+        = f.error_messages_for(:sale)
+  .row
+    .col-md-6
+      .form-group
+        = f.label :quantity
+        = f.number_field :quantity, min: 0, class: 'form-control'
+        = f.error_messages_for(:quantity)
+
+  .form-actions.bottom20
+    = f.submit nil, class: 'btn btn-primary'

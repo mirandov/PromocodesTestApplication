@@ -1,0 +1,32 @@
+!!!
+%html{lang: 'ru'}
+  %head
+    %title=t('app.name')
+    %meta{charset: 'utf-8'}
+    %meta{name: 'viewport', content: "width=device-width, initial-scale=1.0"}
+    %meta{'http-equiv'=>"X-UA-Compatible", 'content'=>"IE=edge"}
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    =favicon_link_tag 'favicon.ico'
+    =favicon_link_tag 'favicon-32x32.png', sizes: '32x32'
+    =favicon_link_tag 'apple-icon.png', rel: 'apple-touch-icon'
+
+  %body
+    =render 'application/navbar_top'
+    #wrapper
+      =render 'application/sidebar'
+      #page-content-wrapper
+        .container-fluid
+          %span.hidden-print#sidebar-toggle
+            = link_to "#wrapper", class: 'sidebar-toggle' do
+              = fa_icon('ellipsis-v')
+          =render 'flash_messages'
+          -if content_for? :breadcrumb
+            =yield :breadcrumb
+          -if content_for? :error_messages
+            =yield :error_messages
+          = yield
+  .modal.fade#loader{tabindex: -1, role: 'dialog', 'aria-labelledby' => 'myModalLabel'}
+    .modal-dialog.mymodal{role: 'document'}
+      =image_tag 'gears.gif'

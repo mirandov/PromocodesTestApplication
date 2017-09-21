@@ -1,0 +1,274 @@
+@include text-emphasis-variant('.text-purple', $brand-purple)
+
+body
+  font-family: 'Open Sans'
+
+.light
+  font-family: 'Open Sans'
+  font-weight: 100
+
+.intro
+  font-family: 'Intro'
+
+.has-error .form-control:focus, .form-control:focus
+  box-shadow: none
+
+h1, h2, h3
+  margin-top: 10px
+  margin-bottom: 10px
+
+.page-header
+  h1, h2, h3
+    @extend .light
+
+.field_with_errors
+  @extend .has-error
+
+.box
+  background: #fff
+  border-color: #e7eaec
+  border-width: 5px 0 0
+  border-style: solid none none
+  padding: 15px 20px 20px
+  margin: 20px 0
+  .page-header
+    margin-top: 0
+
+a
+  transition: all .5s
+  &:hover, &:active, &:focus
+    text-decoration: none
+
+.label
+  font-weight: normal
+  border-radius: 0
+
+.toleft
+  display: inline-block
+  .label
+    font-family: 'Intro'
+    font-size: 90%
+    display: inline-block
+    padding: 4px 8px 4px 8px
+    min-width: 110px
+    .tiny
+      font-size: 75%
+    .text-warning
+      color: $text-yellow
+  .link
+    font-family: 'Intro'
+
+.toright
+  float: right
+  .label
+    font-family: 'Intro'
+    font-size: 90%
+    display: inline-block
+    padding: 4px 8px 4px 8px
+    min-width: 110px
+    .tiny
+      font-size: 75%
+    .text-warning
+      color: $text-yellow
+  .link
+    font-family: 'Intro'
+
+.center
+  text-align: center
+.left
+  text-align: left
+.right
+  text-align: right
+.label-circle
+  border-radius: 25%
+  font-family: 'Intro'
+  font-size: 60%
+
+.alert-block
+  position: absolute
+  right: 0
+  top: 70px
+  z-index: 5
+  margin-right: 30px
+  opacity: .8
+
+.growl-msg
+  display: none
+
+.btn-toolbar
+  margin: 20px 0
+
+.table
+  th
+    text-align: center
+    vertical-align: middle !important
+  &.center
+    td
+      text-align: center
+      vertical-align: middle !important
+.p50
+  width: 50px
+      
+.easy-hidden
+  display: none
+
+#date_selector
+  position: fixed
+  left: $sidebar-width + 5px
+  top: $navbar-height + 5px
+  z-index: 1000
+  border-radius: 5px 5px 5px 5px
+  padding: 10px 10px 10px 10px
+  background-color: rgba(255, 255, 255, 0.9)
+  border-color: $sidebar-right-border-color
+  border-style: solid
+  border-width: 1px
+  .padding5
+    display: inline-block
+    padding-top: 10px
+    padding-right: 5px
+    position: relative
+
+.breadcrumb
+  text-align: left
+  margin: 0px 0px 0px 0px
+  padding: 0px 0px 0px 0px
+.sqlabel
+  padding: 5px 5px 5px 5px
+  color: #fff
+  display: inline-block
+  margin: 2px 2px 2px 2px
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6)
+  min-width: 75px
+.tiny
+  text-align: center
+  font-size: 80%
+.big
+  font-family: 'Intro'
+  text-align: center
+  font-size: 140%
+.badge
+  &.red
+    float: none
+    background: $brand-danger
+    min-width: 60px
+    font-size: 80%
+    display: inline-block
+  &.green
+    float: none
+    background: $brand-success
+    min-width: 60px
+    font-size: 80%
+    display: inline-block
+  &.yellow
+    float: none
+    background: $brand-warning
+    min-width: 60px
+    font-size: 80%
+    display: inline-block
+  &.grey
+    float: none
+    background: $gray-light
+    min-width: 60px
+    font-size: 80%
+    display: inline-block
+  &.blue
+    float: none
+    background: $brand-primary
+    min-width: 60px
+    font-size: 80%
+    display: inline-block
+  &.lightblue
+    float: none
+    background: $brand-info
+    min-width: 60px
+    font-size: 80%
+    display: inline-block
+  &.badge-middle
+    min-width: 100px    
+  &.badge-long
+    min-width: 130px    
+.notop
+  border-top-style: none
+.nobottom
+  border-bottom-style: none
+.alert-label
+  @extend .alert
+  padding: 5px 15px 5px 15px
+  margin-bottom: 15px
+  font-size: 85%
+  font-family: Intro
+  width: 100px
+  text-align: center
+  border-radius: 7px
+  $x_sizes: (150 200 300 400 500 600)
+  @each $x_size in $x_sizes 
+    &.x#{$x_size}
+      width: #{$x_size}px
+.panel
+  .panel-body
+    .nomargins
+      margin: 0px 0px 0px 0px
+      padding: 0px 0px 0px 0px
+      .list-group
+        margin-bottom: 0px
+.panel-default
+  .panel-heading
+    background-color: #eeeeee
+    border-color: #ddd
+.panel-wave
+  border-color: darken(#e0f2f1, 5%)
+  .panel-heading
+    background-color: #e0f2f1
+    color: darken(#b2dfdb, 40%)
+.green-text
+  color: darken($brand-success, 15%)
+  font-family: 'Intro'
+.green-text-thin
+  color: darken($brand-success, 15%)
+  font-style: italic
+.form-group
+  .long-element
+    width: auto
+.icon-button
+  cursor: pointer
+.remove_fields
+  color: inherit
+  &:hover
+    color: inherit
+.mymodal
+  height: 100%
+  top: 25%
+  width: 100%
+  text-align: center
+$paddings: (5 10 20 30 40 50)
+@each $padding  in $paddings 
+  .left#{$padding}
+    padding-left: #{$padding}px
+  .right#{$padding}
+    padding-right: #{$padding}px
+  .mleft#{$padding}
+    margin-left: #{$padding}px
+  .mright#{$padding}
+    margin-right: #{$padding}px
+
+@media print
+  a[href]:after
+    content: none
+  #wrapper
+    padding-left: 0
+    padding-top: 0
+    #sidebar-wrapper
+      width: 0
+    #page-content-wrapper
+      position: relative
+      margin-right: 0
+    #sidebar-toggle
+      left: 0
+$percents: (90 85 80 75 70 65 60 55 50 40 30 20 10 5)
+@each $percent in $percents 
+  .small#{$percent}
+    font-size: #{$percent+'%'}
+    padding: #{round($padding-base-vertical * $percent / 100)} #{round($padding-base-horizontal * $percent / 100)} #{round($padding-base-vertical * $percent / 100)} #{round($padding-base-horizontal * $percent / 100)}
+.bottom20
+  padding-bottom: 20px

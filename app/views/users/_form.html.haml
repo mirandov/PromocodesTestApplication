@@ -1,0 +1,51 @@
+- if @current_role_user.try(:is_admin?) and @user.new_record?
+  - prms = {url: create_by_admin_users_path()}
+- else
+  - prms = {}
+= form_for @user, prms do |f|
+  = error_messages_for @user
+  .form-actions.bottom20
+    = f.submit nil, class: 'btn btn-primary'
+  .row
+    .col-md-6
+      .form-group
+        = f.label :email
+        = f.text_field :email, class: 'form-control'
+        = f.error_messages_for(:email)
+    .col-md-6
+      .form-group
+        = f.label :birthday
+        .input-group.date.datepicker
+          = f.text_field(:birthday, value: lnil(f.object.birthday),
+          class: 'form-control')
+          %span.input-group-addon
+            %span.glyphicon.glyphicon-calendar
+        = f.error_messages_for(:birthday)
+  - if @user.new_record?
+    .row
+      .col-md-6
+        .form-group
+          = f.label :password
+          = f.password_field :password, class: 'form-control'
+          = f.error_messages_for(:password)
+      .col-md-6
+        .form-group
+          = f.label :password_confirmation
+          = f.password_field :password_confirmation, class: 'form-control'
+          = f.error_messages_for(:password_confirmation)
+  - # Форма для редактирования связки роль-пользователь
+  - # nested_start
+  - if @current_role_user.present? and @current_role_user.is_admin?
+    .row.bottom20
+      .col-md-12
+        -# Кнопка для добавления связи роль-пользователь. См. role_users_helper
+        = link_to_add_role(f, f.object)
+    - i = 0
+    = f.fields_for(:role_users) do |fr|
+      -# Скрытое поле - id связи роль-пользователь. Иначе все связи будут
+      -# новыми
+      = fr.hidden_field(:id)
+      -# Чтобы не повторять код, выделяем его часть в отдельный файл
+      = render('users/one_role_user_form', fr: fr, i: i + 1)
+    - # nested_finish
+

@@ -1,0 +1,33 @@
+I"(function() {
+  var app_ready_f, loader_f;
+
+  loader_f = function() {
+    $('.long, .longpaginate .page a, .longpaginate .next a, .longpaginate .prev a, .longpaginate .last a, .longpaginate .first a').on('click', function() {
+      $('#loader').modal('show');
+      return true;
+    });
+    return true;
+  };
+
+  this.datepicker_activation = function() {
+    return window.datepicker_activation_by_item($(document));
+  };
+
+  this.datepicker_activation_by_item = function(item) {
+    return item.find('.datepicker').datetimepicker({
+      locale: 'ru',
+      format: 'DD.MM.YYYY'
+    });
+  };
+
+  app_ready_f = function() {
+    loader_f();
+    return window.datepicker_activation();
+  };
+
+  $(document).ready(app_ready_f);
+
+  $(document).on('page:load', app_ready_f);
+
+}).call(this);
+:ET

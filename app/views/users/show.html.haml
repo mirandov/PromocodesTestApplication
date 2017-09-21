@@ -1,0 +1,24 @@
+=breadcrumb_tag do
+  %li.active
+    = @user.email
+  %li
+    = link_to 'Пользователи', users_path
+  %li
+    Администрирование
+    
+%h1= @user.email
+
+%dl
+  %dt= User.human_attribute_name(:email)
+  %dd= @user.email
+  %dt= User.human_attribute_name(:reset_password_email_sent_at)
+  %dd= lnil(@user.reset_password_email_sent_at)
+  %dt= User.human_attribute_name(:activation_state)
+  %dd= @user.activation_state
+  %dt= User.human_attribute_name(:activation_token_expires_at)
+  %dd= lnil(@user.activation_token_expires_at)
+  %dt= User.human_attribute_name(:last_login_at)
+  %dd= lnil(@user.last_login_at)
+  %dt= User.human_attribute_name(:role_users)
+  %dd= @user.role_users.map{ |ru| ru.role.name }.uniq.join(', ')
+

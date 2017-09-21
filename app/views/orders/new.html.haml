@@ -1,0 +1,13 @@
+=breadcrumb_tag do
+  %li.active
+    = t('headers.orders.new')
+  %li
+    = link_to 'Заказы', orders_path
+
+.page-header
+  %h1= t('headers.orders.new')
+
+= render 'form'
+
+= link_to  orders_path,class: 'btn btn-info' do
+  = t('buttons.back')

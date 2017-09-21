@@ -1,0 +1,60 @@
+#navbar-toggle
+  float: left
+
+.navbar-fixed-top
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4)
+
+.navbar-inverse
+  z-index: 1000
+  position: fixed
+  width: 100%
+  height: $navbar-height
+  .nav.navbar-nav
+    padding: 0
+    li
+      padding: 0
+      .dropdown-menu
+        //overflow: scroll
+        background: $navbar-inverse-bg
+        .selected-item
+          a
+            font-weight: bold
+      a
+        padding: 2px 10px
+        line-height: 50px 
+    .in
+      z-index: 1000
+  .navbar-right
+    li
+      a
+        &:hover
+          background: $navbar-inverse-link-hover-bg !important
+  #bs-example-navbar-collapse-1
+    max-height: 250px
+    overflow: auto
+    margin: 0 0 0 0
+    a
+      background-color: $navbar-inverse-bg
+
+.navbar-brand
+  //height: 50px
+  height: auto
+  font-size: 18px
+  line-height: 50px
+  font-family: 'Intro'
+  text-align: center
+  text-indent: 0px
+  padding: 2px 10px
+
+  a
+    color: $navbar-inverse-link-color
+    transition: all 0.5s ease
+    &:hover
+      color: $navbar-inverse-link-hover-color
+      background: none
+      transition: all 0.5s ease
+    &:active
+      color: $navbar-inverse-link-active-color
+      background: none
+      transition: all 0.5s ease
+

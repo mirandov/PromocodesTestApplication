@@ -1,0 +1,18 @@
+=breadcrumb_tag do
+  %li
+    = link_to(@promo.name, @promo)
+  %li
+    = link_to 'Промокоды', promos_path
+%h1= @promo.name
+
+%dl
+  %dt= Promo.human_attribute_name(:name)
+  %dd= @promo.name
+  %dt= Promo.human_attribute_name(:sale)
+  %dd= @promo.sale
+  %dt= Promo.human_attribute_name(:quantity)
+  %dd= @promo.quantity
+
+= link_to edit_promo_path, class: 'btn btn-info' do
+  = fa_icon :edit
+  = t('headers.promos.edit')

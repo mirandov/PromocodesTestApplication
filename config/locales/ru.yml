@@ -1,0 +1,80 @@
+ru:
+  app:
+    name: Тестовое задание
+    company:
+      department: Собеседование
+  helpers:
+    submit:
+      create: Сохранить
+      submit: Сохранить
+      update: Сохранить
+  buttons:
+    back: Назад
+    edit: Редактировать
+    destroy: Удалить
+    show: Показать
+    confirm:
+      user: Действительно удалить пользователя?
+      role: Действительно удалить роль?
+    new:
+      user: Новый пользователь
+      role: Новая роль
+  headers:
+    promos:
+      edit: Редактировать промокод
+      new: Новый промокод
+      index: Список промокодов
+    orders:
+      edit: Редактировать заказ
+      new: Новый заказ
+      index: Список заказов
+    users:
+      edit: Редактирование пользователя
+      new: Новый пользователь
+      index: Список пользователей
+    roles:
+      index: Список возможных ролей пользователей
+      edit: Редактирование роли
+      new: Новая роль
+  views:
+    pagination:
+      first: ⇤
+      last: ⇥
+      previous: ←
+      next: →
+      truncate: …
+  activerecord:
+    models:
+      user: Пользователь
+    attributes:
+      promo:
+        name: Промокод
+        sale: Скидка
+        quantity: Количество использований
+      order:
+        description: Описание товара
+        price: Цена
+        promo_input: Промокод
+        user: Пользователь
+        price_with_sale: Цена со скидкой
+
+      user:
+        email: Пользовательское имя/электронная почта
+        birthday: Дата рождения
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        reset_password_email_sent_at: Дата отправления письма для смены пароля
+        activation_state: Статус активации
+        activation_token_expires_at: Дата прекращения действия токена активации
+        last_login_at: Время последнего входа в систему
+        role_users: Роли
+      role:
+        name: Обозначение
+        info: Краткое название
+        full_info: Описание
+      role_user: &role_users
+        role: Роль
+        role_id: Роль
+        data: Параметры
+      user/role_users:
+        <<: *role_users

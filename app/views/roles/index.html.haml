@@ -1,0 +1,33 @@
+.page-header
+  %h1= t('headers.roles.index')
+
+%table.table.table-hover.table-striped
+  %caption
+    = link_to new_role_path, class: 'btn btn-success' do
+      = fa_icon :plus
+      = t('buttons.new.role')
+  %thead
+    %tr
+      %th= Role.human_attribute_name(:name)
+      %th= Role.human_attribute_name(:info)
+      %th= Role.human_attribute_name(:full_info)
+      %th
+
+  %tbody
+    - @roles.each do |role|
+      %tr
+        %td.center= role.name
+        %td.center= role.info
+        %td.center= role.full_info
+        %td.right
+          = link_to role, class: 'btn btn-warning' do
+            = fa_icon :eye
+            = t('buttons.show')
+          = link_to edit_role_path(role), class: 'btn btn-info' do
+            = fa_icon :edit
+            = t('buttons.edit')
+          = link_to role, :method => :delete,
+          :data => { :confirm => t('buttons.confirm.role') },
+          class: 'btn btn-danger' do
+            = fa_icon :times
+            = t('buttons.destroy')

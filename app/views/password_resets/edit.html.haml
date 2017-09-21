@@ -1,0 +1,21 @@
+%h1
+  Установите новый пароль
+= form_for @user, :url => password_reset_path(@token), :html => {:method => :put} do |f|
+  =error_messages_for @user
+  .row
+    .col-md-5
+      .form-group
+        = f.label :email
+        = @user.email
+  .row
+    .col-md-5
+      .form-group
+        = f.label :password
+        = f.password_field :password, class: 'form-control'
+  .row
+    .col-md-5 
+      .form-group
+        = f.label :password
+        = f.password_field :password_confirmation, class: 'form-control'
+  .form-actions
+    = f.submit "Сменить пароль", class: 'btn btn-primary'

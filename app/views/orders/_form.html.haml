@@ -1,0 +1,23 @@
+= form_for @order do |f|
+  = error_messages_for @order
+  .row
+    .col-md-6
+      .form-group
+        = f.label :description
+        = f.text_field :description, class: 'form-control'
+        = f.error_messages_for(:description)
+  .row
+    .col-md-6
+      .form-group
+        = f.label :price
+        = f.text_field :price, class: 'form-control'
+        = f.error_messages_for(:price)
+  .row
+    .col-md-6
+      .form-group
+        = f.label :promo_input
+        = f.text_field :promo_input, class: 'form-control'
+        = f.error_messages_for(:promo_input)
+
+  .form-actions.bottom20
+    = f.submit nil, class: 'btn btn-primary'
